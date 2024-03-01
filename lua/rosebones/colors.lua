@@ -22,14 +22,14 @@ M.default = {
   bg_highlight = hsl(264, 17, 50),
 
   git = {
-    add = "#449dab",
-    change = "#6183bb",
-    delete = "#914c54"
+    add =	hsl(188, 43, 47),
+    change = hsl(217, 40, 56),
+    delete = hsl(353, 31, 43),
   },
   gitSigns = {
-    add = "#266d6a",
-    change = "#536c9e",
-    delete = "#b2555b",
+    add = hsl(177, 48, 29),
+    change = hsl(220, 31, 47),
+    delete = hsl(356, 38, 52),
   },
 }
 
@@ -48,15 +48,16 @@ M.day = {
   dark = hsl(229, 20, 41),
   comment =	hsl(250, 11, 45),
   bg_highlight = hsl(264, 17, 50),
+
   git = {
-    add = "#449dab",
-    change = "#6183bb",
-    delete = "#914c54"
+    add =	hsl(188, 43, 47),
+    change = hsl(217, 40, 56),
+    delete = hsl(353, 31, 43),
   },
   gitSigns = {
-    add = "#266d6a",
-    change = "#536c9e",
-    delete = "#b2555b",
+    add = hsl(177, 48, 29),
+    change = hsl(220, 31, 47),
+    delete = hsl(356, 38, 52),
   },
 }
 
