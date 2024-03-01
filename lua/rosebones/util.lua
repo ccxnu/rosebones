@@ -4,12 +4,6 @@ M.bg = "#000000"
 M.fg = "#ffffff"
 M.day_brightness = 0.3
 
----@param c  string
-local function hexToRgb(c)
-  c = string.lower(c)
-  return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
-end
-
 ---@param foreground string foreground color
 ---@param background string background color
 ---@param alpha number|string number between 0 and 1. 0 results in bg, 1 results in fg
