@@ -7,60 +7,45 @@ local M = {}
 ---@class Palette
 M.default = {
   none = "NONE",
-  bg = hsl(249, 22, 12),
-  fg = hsl(0, 18, 86),
-  text = hsl(245, 53, 92),
-  love = hsl(347, 22, 63),
-  gold = hsl(35, 98, 81),
+  bg = hsl(9, 30, 5),
+ 	fg = hsl(0, 18, 80),
+  sky = hsl(243, 30, 80),
+  love = hsl(347, 22, 75),
+  gold = hsl(45, 98, 50),
   rose = hsl(2, 66, 75),
   pine = hsl(198, 49, 38),
-  foam = hsl(188, 64, 68),
-  iris = hsl(267, 57, 78),
+  foam = hsl(188, 50, 50),
+  iris = hsl(267, 20, 60),
   amor = hsl(343, 76, 68),
+  blue = hsl(217, 40, 56),
+  text = hsl(347, 22, 68),
   dark = hsl(229, 20, 41),
+	muted = hsl(9, 30, 6),
+	overlay = hsl(347, 20, 60),
   comment =	hsl(250, 11, 45),
-  bg_highlight = hsl(264, 17, 50),
-
-  git = {
-    add =	hsl(188, 43, 47),
-    change = hsl(217, 40, 56),
-    delete = hsl(353, 31, 43),
-  },
-  gitSigns = {
-    add = hsl(177, 48, 29),
-    change = hsl(220, 31, 47),
-    delete = hsl(356, 38, 52),
-  },
+  bg_highlight = hsl(249, 15, 28),
 }
 
 M.day = {
   none = "NONE",
-  bg = hsl(32, 57, 95),
-  fg = hsl(2, 28, 35),
-  text = hsl(248, 19, 40),
-  love = hsl(343, 35, 55),
-  gold = hsl(35, 81, 56),
-  rose = hsl(3, 53, 67),
+  bg = hsl(15, 25, 85),
+  fg = hsl(203, 15, 20),
+  sky = hsl(248, 20, 40),
+  love = hsl(350, 40, 30),
+  gold = hsl(35, 55, 60),
+  rose = hsl(3, 50, 50),
   pine = hsl(197, 53, 34),
   foam = hsl(189, 30, 45),
-  iris = hsl(268, 21, 57),
+  iris = hsl(268, 25, 35),
   amor = hsl(344, 76, 60),
+  blue = hsl(217, 40, 56),
+  text = hsl(203, 15, 20),
   dark = hsl(229, 20, 41),
-  comment =	hsl(250, 11, 45),
-  bg_highlight = hsl(264, 17, 50),
-
-  git = {
-    add =	hsl(188, 43, 47),
-    change = hsl(217, 40, 56),
-    delete = hsl(353, 31, 43),
-  },
-  gitSigns = {
-    add = hsl(177, 48, 29),
-    change = hsl(220, 31, 47),
-    delete = hsl(356, 38, 52),
-  },
+  muted = hsl(15, 22, 85),
+  overlay = hsl(15, 25, 70),
+ 	comment = hsl(16, 7, 55),
+  bg_highlight = hsl(225, 69, 87),
 }
-
 
 ---@return ColorScheme
 function M.setup(opts)
@@ -78,42 +63,38 @@ function M.setup(opts)
   local colors = vim.tbl_deep_extend("force", vim.deepcopy(M.default), palette)
 
   util.bg = colors.bg
-  util.day_brightness = config.options.day_brightness
+  -- util.day_brightness = config.options.day_brightness
 
-  colors.diff = {
-    add = util.darken(colors.foam, 0.15),
-    delete = util.darken(colors.amor, 0.15),
-    change = util.darken(colors.text, 0.15),
-    text = colors.text,
-  }
-
-  colors.git.ignore = colors.dark
-  colors.black = util.darken(colors.bg, 0.8, "#000000")
-  colors.border_highlight = util.darken(colors.foam, 0.8)
-  colors.border = colors.black
-
-  -- Popups and statusline always get a dark background
-  colors.bg_popup = colors.bg
-  colors.bg_statusline = colors.bg
-
-  -- Sidebar and Floats are configurable
-  colors.bg_sidebar = config.options.styles.sidebars == "transparent" and colors.none
-    or colors.bg
-
-  colors.bg_float = config.options.styles.floats == "transparent" and colors.none
-    or colors.bg
-
-  colors.bg_visual = util.darken(colors.pine, 0.4)
-  colors.bg_search = colors.pine
-  colors.fg_sidebar = colors.fg
-  -- colors.fg_float = config.options.styles.floats == "dark" and colors.fg_dark or colors.fg
-  colors.fg_float = colors.fg
+  colors.black = util.darken(colors.bg, 0.98, "#000000")
+  colors.border = colors.overlay
+  colors.link = colors.iris
 
   colors.error = colors.amor
-  colors.todo = colors.blue
-  colors.warning = colors.gold
-  colors.info = colors.foam
   colors.hint = colors.iris
+  colors.info = colors.foam
+  colors.todo = colors.rose
+  colors.note = colors.pine
+  colors.warning = colors.gold
+
+  colors.git = {
+    add = util.darken(colors.foam, 0.8),
+    change = util.darken(colors.blue, 0.8),
+    delete = util.darken(colors.amor, 0.8),
+    dirty = util.darken(colors.love, 0.8),
+    text = util.darken(colors.fg, 0.8),
+    ignore = colors.comment,
+    merge = colors.rose,
+    rename = colors.pine,
+    stage = colors.iris,
+    untracked = colors.overlay,
+  }
+
+  colors.h1 = colors.amor
+  colors.h2 = colors.blue
+  colors.h3 = colors.iris
+  colors.h4 = colors.rose
+  colors.h5 = colors.foam
+  colors.h6 = colors.gold
 
   colors.delta = {
     add = util.darken(colors.foam, 0.45),
@@ -121,9 +102,6 @@ function M.setup(opts)
   }
 
   config.options.on_colors(colors)
-  if opts.transform and config.is_day() then
-    util.invert_colors(colors)
-  end
 
   return colors
 end

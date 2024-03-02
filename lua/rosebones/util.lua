@@ -2,7 +2,6 @@ local M = {}
 
 M.bg = "#000000"
 M.fg = "#ffffff"
-M.day_brightness = 0.3
 
 ---@param c  string
 local function hexToRgb(c)
@@ -32,19 +31,6 @@ end
 
 function M.lighten(hex, amount, fg)
   return M.blend(hex, fg or M.fg, amount)
-end
-
-function M.invert_color(color)
-  local hsluv = require("rosebones.hsluv")
-  if color ~= "NONE" then
-    local hsl = hsluv.hex_to_hsluv(color)
-    hsl[3] = 100 - hsl[3]
-    if hsl[3] < 40 then
-      hsl[3] = hsl[3] + (100 - hsl[3]) * M.day_brightness
-    end
-    return hsluv.hsluv_to_hex(hsl)
-  end
-  return color
 end
 
 ---@param group string
@@ -83,17 +69,6 @@ function M.autocmds(config)
     vim.opt_local.winhighlight = table.concat(whl, ",")
   end
 
-  vim.api.nvim_create_autocmd("FileType", {
-    group = group,
-    pattern = table.concat(config.sidebars, ","),
-    callback = set_whl,
-  })
-  if vim.tbl_contains(config.sidebars, "terminal") then
-    vim.api.nvim_create_autocmd("TermOpen", {
-      group = group,
-      callback = set_whl,
-    })
-  end
 end
 
 -- Simple string interpolation.
@@ -120,57 +95,30 @@ end
 function M.terminal(colors)
   -- dark
   vim.g.terminal_color_0 = colors.black
-  vim.g.terminal_color_8 = colors.terminal_black
+  vim.g.terminal_color_8 = colors.bg_dark
 
   -- light
-  vim.g.terminal_color_7 = colors.fg_dark
+  vim.g.terminal_color_7 = colors.fg
   vim.g.terminal_color_15 = colors.fg
 
   -- colors
-  vim.g.terminal_color_1 = colors.red
-  vim.g.terminal_color_9 = colors.red
+  vim.g.terminal_color_1 = colors.amor
+  vim.g.terminal_color_9 = colors.amor
 
-  vim.g.terminal_color_2 = colors.green
-  vim.g.terminal_color_10 = colors.green
+  vim.g.terminal_color_2 = colors.pine
+  vim.g.terminal_color_10 = colors.pine
 
-  vim.g.terminal_color_3 = colors.yellow
-  vim.g.terminal_color_11 = colors.yellow
+  vim.g.terminal_color_3 = colors.gold
+  vim.g.terminal_color_11 = colors.gold
 
   vim.g.terminal_color_4 = colors.blue
   vim.g.terminal_color_12 = colors.blue
 
-  vim.g.terminal_color_5 = colors.magenta
-  vim.g.terminal_color_13 = colors.magenta
+  vim.g.terminal_color_5 = colors.iris
+  vim.g.terminal_color_13 = colors.iris
 
-  vim.g.terminal_color_6 = colors.cyan
-  vim.g.terminal_color_14 = colors.cyan
-end
-
----@param colors ColorScheme
-function M.invert_colors(colors)
-  if type(colors) == "string" then
-    ---@diagnostic disable-next-line: return-type-mismatch
-    return M.invert_color(colors)
-  end
-  for key, value in pairs(colors) do
-    colors[key] = M.invert_colors(value)
-  end
-  return colors
-end
-
----@param hls Highlights
-function M.invert_highlights(hls)
-  for _, hl in pairs(hls) do
-    if hl.fg then
-      hl.fg = M.invert_color(hl.fg)
-    end
-    if hl.bg then
-      hl.bg = M.invert_color(hl.bg)
-    end
-    if hl.sp then
-      hl.sp = M.invert_color(hl.sp)
-    end
-  end
+  vim.g.terminal_color_6 = colors.foam
+  vim.g.terminal_color_14 = colors.foam
 end
 
 ---@param theme Theme
