@@ -131,7 +131,7 @@ function M.setup()
 		Function = { fg = c.fg }, -- function name (also: methods for classes)
 		Identifier = { fg = c.fg }, -- (preferred) any variable name
 		Include = { fg = c.pine }, --  preprocessor #include
-		Keyword = { fg = c.amor },  --  any other keyword
+		Keyword = { fg = c.pine },  --  any other keyword
 		Label = { fg = c.foam }, -- case, default, etc.
 		LspCodeLens = { fg = c.comment },
 		LspCodeLensSeparator = { fg = c.comment },
