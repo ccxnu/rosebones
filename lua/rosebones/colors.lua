@@ -70,18 +70,18 @@ function M.setup(opts)
   colors.link = colors.iris
 
   colors.error = colors.amor
-  colors.hint = colors.iris
+  colors.hint = colors.sky
   colors.info = colors.foam
+  colors.warning = colors.gold
   colors.todo = colors.rose
   colors.note = colors.pine
-  colors.warning = colors.gold
 
   colors.git = {
-    add = util.darken(colors.foam, 0.8),
-    change = util.darken(colors.blue, 0.8),
-    delete = util.darken(colors.amor, 0.8),
-    dirty = util.darken(colors.love, 0.8),
-    text = util.darken(colors.fg, 0.8),
+    add = colors.foam,
+    change = colors.blue,
+    delete = colors.amor,
+    dirty = colors.love,
+    text = colors.fg,
     ignore = colors.comment,
     merge = colors.rose,
     rename = colors.pine,

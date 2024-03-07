@@ -105,12 +105,12 @@ function M.setup()
     DiagnosticWarn = { fg = c.warning }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
     DiagnosticInfo = { fg = c.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
     DiagnosticHint = { fg = c.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-    DiagnosticUnnecessary = { fg = c.black }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+    DiagnosticUnnecessary = { fg = c.comment }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
 
-    DiagnosticVirtualTextError = { bg = util.darken(c.error, 0.1), fg = c.error }, -- Used for "Error" diagnostic virtual text
-    DiagnosticVirtualTextWarn = { bg = util.darken(c.warning, 0.1), fg = c.warning }, -- Used for "Warning" diagnostic virtual text
-    DiagnosticVirtualTextInfo = { bg = util.darken(c.info, 0.1), fg = c.info }, -- Used for "Information" diagnostic virtual text
-    DiagnosticVirtualTextHint = { bg = util.darken(c.hint, 0.1), fg = c.hint }, -- Used for "Hint" diagnostic virtual text
+    DiagnosticVirtualTextError = { fg = c.error }, -- Used for "Error" diagnostic virtual text
+    DiagnosticVirtualTextWarn = { fg = c.warning }, -- Used for "Warning" diagnostic virtual text
+    DiagnosticVirtualTextInfo = { fg = c.info }, -- Used for "Information" diagnostic virtual text
+    DiagnosticVirtualTextHint = { fg = c.hint }, -- Used for "Hint" diagnostic virtual text
 
     DiagnosticUnderlineError = { undercurl = true, sp = c.error }, -- Used to underline "Error" diagnostics
     DiagnosticUnderlineWarn = { undercurl = true, sp = c.warning }, -- Used to underline "Warning" diagnostics
@@ -149,12 +149,12 @@ function M.setup()
 		-- SpecialChar = { link = "Special" }, --  special character in a constant
 		-- SpecialComment = { fg = c.iris }, -- special things inside a comment
 		Statement = { fg = c.pine, bold = true },-- (preferred) any statement
-		StorageClass = { fg = c.sky }, -- static, register, volatile, etc.
+		StorageClass = { fg = c.iris }, -- static, register, volatile, etc.
 		String = { fg = c.text },
 		-- Structure = { fg = c.foam }, --  struct, union, enum, etc.
 		Tag = { fg = c.pine }, -- you can use CTRL-] on this
 		Todo = { fg = c.todo },
-		Type = { fg = c.sky }, -- (preferred) int, long, char, etc.
+		Type = { fg = c.fg }, -- (preferred) int, long, char, etc.
 		-- TypeDef = { link = "Type" }, --  A typedef
 		Underlined = { fg = c.iris, underline = true },
 
@@ -208,9 +208,9 @@ function M.setup()
     ["@keyword.exception"] = { link = "Exception" },
     ["@number.float"] = { link = "Float" },
     ["@function"] = { link = "Function" },
-    ["@function.builtin"] = { link = "Special" },
+    ["@function.builtin"] = { link = "@function" },
     ["@function.call"] = { link = "@function" },
-    ["@function.macro"] = { fg = c.fg },
+    ["@function.macro"] = { link = "@function" },
     ["@keyword.import"] = { link = "Include" },
     ["@keyword.coroutine"] = { link = "@keyword" },
     ["@keyword.operator"] = { link = "@operator" },
@@ -302,9 +302,9 @@ function M.setup()
     ["@module"] = { link = "Include" },
 
     -- tsx
-    ["@tag.tsx"] = { fg = c.amor },
-    ["@constructor.tsx"] = { fg = c.foam },
-    ["@tag.delimiter.tsx"] = { fg = util.darken(c.foam, 0.7) },
+    ["@tag.tsx"] = { fg = c.pine },
+    ["@constructor.tsx"] = { fg = c.rose },
+    ["@tag.delimiter.tsx"] = { fg = c.comment },
 
     -- LSP Semantic Token Groups
     ["@lsp.type.boolean"] = { link = "@boolean" },
@@ -356,11 +356,15 @@ function M.setup()
     healthSuccess = { fg = c.foam },
     healthWarning = { fg = c.warning },
 
-    --- PLUGINS
+    --- PLUGINS ---
+
     -- GitSigns
-    GitSignsAdd = { fg = c.git.add }, -- diff mode: Added line |git.txt|
-    GitSignsChange = { fg = c.git.change }, -- diff mode: Changed line |git.txt|
-    GitSignsDelete = { fg = c.git.delete }, -- diff mode: Deleted line |git.txt|
+		GitSignsAdd = { fg = util.darken(c.git.add, 0.8), bg = c.none },
+		GitSignsChange = { fg = util.darken(c.git.change, 0.8), bg = c.none },
+		GitSignsDelete = { fg = util.darken(c.git.delete, 0.8), bg = c.none },
+    SignAdd = { fg = c.git.add, bg = c.none }, -- diff mode: Added line |git.txt|
+    SignChange = { fg = c.git.change, bg = c.none }, -- diff mode: Changed line |git.txt|
+    SignDelete = { fg = c.git.delete, bg = c.none }, -- diff mode: Deleted line |git.txt|
 
     -- Telescope
     TelescopeBorder = { fg = c.border, bg = c.bg },
@@ -405,33 +409,8 @@ function M.setup()
     -- Lazy
     LazyProgressDone = { bold = true, fg = c.iris },
     LazyProgressTodo = { bold = true, fg = c.dark },
-    -- TreesitterContext = { bg = util.darken(c.bg_visual, 0.4) },
+    TreesitterContext = { bg = c.black },
   }
-
-  local markdown_rainbow = { c.foam, c.gold, c.love, c.pine, c.iris, c.amor }
-
-  for i, color in ipairs(markdown_rainbow) do
-    theme.highlights["@markup.heading." .. i .. ".markdown"] = { fg = color, bold = true }
-    theme.highlights["Headline" .. i] = { bg = util.darken(color, 0.05) }
-  end
-  theme.highlights["Headline"] = { link = "Headline1" }
-
-  if not vim.diagnostic then
-    local severity_map = {
-      Error = "Error",
-      Warn = "Warning",
-      Info = "Information",
-      Hint = "Hint",
-    }
-    local types = { "Default", "VirtualText", "Underline" }
-    for _, type in ipairs(types) do
-      for snew, sold in pairs(severity_map) do
-        theme.highlights["LspDiagnostics" .. type .. sold] = {
-          link = "Diagnostic" .. (type == "Default" and "" or type) .. snew,
-        }
-      end
-    end
-  end
 
   ---@type table<string, table>
   theme.defer = {}
