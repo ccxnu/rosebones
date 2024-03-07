@@ -28,7 +28,7 @@ function M.setup()
 
   theme.highlights = {
     ColorColumn = { bg = c.black }, -- used for the columns set with 'colorcolumn'
-    Conceal = { bg = c.text }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Conceal = { bg = c.none, bold = true }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		CurSearch = { fg = c.bg, bg = c.gold },
     Cursor = { fg = c.bg, bg = c.gold }, -- character under the cursor
     CursorColumn = { bg = c.bg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
