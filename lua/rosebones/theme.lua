@@ -145,7 +145,7 @@ function M.setup()
 		PreCondit = { fg = c.pine }, --  preprocessor #if, #else, #endif, etc.
 		PreProc = { link= "PreCondit" }, -- (preferred) generic Preprocessor
 		-- Repeat = { fg = c.pine }, --   for, do, while, etc.
-		Special = { fg = c.foam }, -- (preferred) any special symbol
+		Special = { fg = c.iris }, -- (preferred) any special symbol
 		-- SpecialChar = { link = "Special" }, --  special character in a constant
 		-- SpecialComment = { fg = c.iris }, -- special things inside a comment
 		Statement = { fg = c.pine, bold = true },-- (preferred) any statement
@@ -383,6 +383,10 @@ function M.setup()
     TelescopeBorder = { fg = c.border, bg = c.bg },
     TelescopeNormal = { fg = c.fg, bg = c.bg },
 		TelescopeSelection = { fg = c.fg, bg = c.bg_highlight },
+
+    -- ibhagwan/fzf-lua
+    FzfLuaBorder = { fg = c.border, bg = c.bg },
+    FzfLuaNormal = { fg = c.fg, bg = c.bg },
 
 		-- nvim-neo-tree/neo-tree.nvim
 		NeoTreeGitAdded = { fg = c.git.add },
