@@ -33,8 +33,8 @@ function M.setup()
     Cursor = { fg = c.bg, bg = c.gold }, -- character under the cursor
     CursorColumn = { bg = c.bg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     -- CursorIM = {}, -- like Cursor, but used when in IME mode |CursorIM|
-    CursorLine = { fg = c.fg }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    CursorLineNr = { fg = c.amor }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLine = { bg = c.none }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLineNr = { fg = c.text }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     DiffAdd = { bg = c.git.add }, -- diff mode: Added line |diff.txt|
     DiffChange = { bg = c.git.change }, -- diff mode: Changed line |diff.txt|
     DiffDelete = { bg = c.git.delete }, -- diff mode: Deleted line |diff.txt|
