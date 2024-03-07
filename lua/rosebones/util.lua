@@ -95,7 +95,7 @@ end
 function M.terminal(colors)
   -- dark
   vim.g.terminal_color_0 = colors.black
-  vim.g.terminal_color_8 = colors.bg_dark
+  vim.g.terminal_color_8 = colors.dark
 
   -- light
   vim.g.terminal_color_7 = colors.fg

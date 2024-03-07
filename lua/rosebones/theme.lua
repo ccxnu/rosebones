@@ -78,8 +78,8 @@ function M.setup()
     SpellRare = { sp = c.error, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     StatusLine = { fg = c.fg, bg = c.muted }, -- status line of current window
     StatusLineNC = { fg = util.darken(c.fg, 0.7), bg = c.muted }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		StatusLineTerm = { fg = c.bg, bg = c.pine },
-		StatusLineTermNC = { fg = c.bg, bg = util.darken(c.pine, 0.7) },
+		StatusLineTerm = { fg = c.bg, bg = util.lighten(c.iris, 0.8) },
+		StatusLineTermNC = { fg = c.bg, bg = util.darken(c.iris, 0.7) },
 		Substitute = { link = "IncSearch" }, -- |:substitute| replacement text highlighting
     TabLine = { link = "StatusLine" }, -- tab pages line, not active tab page label
     TabLineFill = { bg = c.black }, -- tab pages line, where there are no labels
@@ -383,6 +383,16 @@ function M.setup()
     TelescopeBorder = { fg = c.border, bg = c.bg },
     TelescopeNormal = { fg = c.fg, bg = c.bg },
 		TelescopeSelection = { fg = c.fg, bg = c.bg_highlight },
+
+		-- nvim-neo-tree/neo-tree.nvim
+		NeoTreeGitAdded = { fg = c.git.add },
+		NeoTreeGitConflict = { fg = c.git.merge },
+		NeoTreeGitDeleted = { fg = c.git.delete },
+		NeoTreeGitIgnored = { fg = c.git.ignore },
+		NeoTreeGitModified = { fg = c.git.dirty },
+		NeoTreeGitRenamed = { fg = c.git.rename },
+		NeoTreeGitUntracked = { fg = c.git.untracked },
+		NeoTreeTitleBar = { link = "StatusLineTerm" },
 
 		-- kyazdani42/nvim-tree.lua
 		NvimTreeEmptyFolderName = { fg = c.comment },
