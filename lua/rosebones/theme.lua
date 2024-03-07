@@ -93,7 +93,7 @@ function M.setup()
 		WildMenu = { link = "IncSearch" },  -- current match in 'wildmenu' completion
     WinBar = { link = "StatusLine" }, -- window bar
     WinBarNC = { link = "StatusLineNC" }, -- window bar in inactive windows
-    WinSeparator = { fg = c.border, bold = true }, -- the column separating vertically split windows
+    WinSeparator = { fg = util.darken(c.border, 0.3), bold = true }, -- the column separating vertically split windows
 
     -- These c are not listed as default vim c,
     -- but they are defacto standard group names for syntax highlighting.
@@ -358,6 +358,19 @@ function M.setup()
 
     --- PLUGINS ---
 
+		-- hrsh7th/nvim-cmp
+		CmpItemAbbr = { fg = c.fg },
+		CmpItemAbbrDeprecated = { fg = c.comment, strikethrough = true },
+		CmpItemAbbrMatch = { fg = c.text, bold = true },
+		CmpItemAbbrMatchFuzzy = { fg = c.text, bold = true },
+		CmpItemKind = { fg = c.comment },
+		CmpItemKindClass = { link = "StorageClass" },
+		CmpItemKindFunction = { link = "Function" },
+		CmpItemKindInterface = { link = "Type" },
+		CmpItemKindMethod = { link = "PreProc" },
+		CmpItemKindSnippet = { link = "String" },
+		CmpItemKindVariable = { link = "Identifier" },
+
     -- GitSigns
 		GitSignsAdd = { fg = util.darken(c.git.add, 0.8), bg = c.none },
 		GitSignsChange = { fg = util.darken(c.git.change, 0.8), bg = c.none },
@@ -395,7 +408,7 @@ function M.setup()
 		NvimTreeRootFolder = { fg = c.pine, bold = true },
 		NvimTreeSpecialFile = { link = "NvimTreeNormal" },
 		NvimTreeWindowPicker = { link = "StatusLineTerm" },
-    NvimTreeWinSeparator = { fg = c.border, bg = c.none },
+    NvimTreeWinSeparator = { fg = util.darken(c.border, 0.3), bg = c.none },
 
     -- Dashboard
     DashboardShortCut = { fg = c.pine },
@@ -438,38 +451,38 @@ function M.setup()
 		DiagnosticVirtualTextInfo = { fg = c.info },
 		DiagnosticVirtualTextWarn = { fg = c.warning },
 
-		FloatBorder = { fg = c.border, bg = "NONE" },
-		Folded = { fg = c.fg, bg = "NONE" },
-		NormalFloat = { bg = "NONE" },
-		Normal = { fg = c.fg, bg = "NONE" },
-		NormalNC = { fg = c.fg, bg = "NONE" },
-		Pmenu = { fg = c.border, bg = "NONE" },
-		PmenuKind = { fg = c.foam, bg = "NONE" },
-		SignColumn = { fg = c.fg, bg = "NONE" },
-		StatusLine = { fg = c.fg, bg = "NONE" },
-		StatusLineNC = { fg = util.darken(c.fg, 0.7), bg = "NONE" },
-		TabLineFill = { bg = "NONE" },
-		TabLineSel = { fg = c.fg, bg = "NONE", bold = styles.bold },
+		FloatBorder = { fg = c.border, bg = c.none },
+		Folded = { fg = c.fg, bg = c.none },
+		NormalFloat = { bg = c.none },
+		Normal = { fg = c.fg, bg = c.none },
+		NormalNC = { fg = c.fg, bg = c.none },
+		Pmenu = { fg = c.border, bg = c.none },
+		PmenuKind = { fg = c.foam, bg = c.none },
+		SignColumn = { fg = c.fg, bg = c.none },
+		StatusLine = { fg = c.fg, bg = c.none },
+		StatusLineNC = { fg = util.darken(c.fg, 0.7), bg = c.none },
+		TabLineFill = { bg = c.none },
+		TabLineSel = { fg = c.fg, bg = c.none, bold = styles.bold },
 
 		-- ["@markup.raw"] = { bg = "none" },
 		["@markup.raw.markdown_inline"] = { fg = c.gold },
 		-- ["@markup.raw.block"] = { bg = "none" },
 
     TelescopeBorder = { fg = c.border, bg = c.none },
-		TelescopeNormal = { fg = c.fg, bg = "NONE" },
-		TelescopePromptNormal = { fg = c.fg, bg = "NONE" },
+		TelescopeNormal = { fg = c.fg, bg = c.none },
+		TelescopePromptNormal = { fg = c.fg, bg = c.none },
 		TelescopeSelectionCaret = { fg = c.rose },
 
-		WhichKeyFloat = { bg = "NONE" },
+		WhichKeyFloat = { bg = c.none },
 
-		IblIndent = { fg = c.overlay, bg = "NONE" },
-		IblScope = { fg = c.foam, bg = "NONE" },
-		IblWhitespace = { fg = c.overlay, bg = "NONE" },
+		IblIndent = { fg = c.overlay, bg = c.none },
+		IblScope = { fg = c.foam, bg = c.none },
+		IblWhitespace = { fg = c.overlay, bg = c.none },
 
-		MiniClueTitle = { bg = "NONE", bold = true },
+		MiniClueTitle = { bg = c.none, bold = true },
 
-		MiniPickBorderText = { bg = "NONE" },
-		MiniPickPrompt = { bg = "NONE", bold = true },
+		MiniPickBorderText = { bg = c.none },
+		MiniPickPrompt = { bg = c.none, bold = true },
 	}
 
 	if options.transparent and options.style == "default" then
