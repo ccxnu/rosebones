@@ -436,7 +436,7 @@ function M.setup()
     -- Lazy
     LazyProgressDone = { bold = true, fg = c.iris },
     LazyProgressTodo = { bold = true, fg = c.dark },
-    TreesitterContext = { bg = c.black },
+    TreesitterContext = { bg = c.none },
   }
 
   ---@type table<string, table>
@@ -486,6 +486,9 @@ function M.setup()
 		TelescopeNormal = { fg = c.fg, bg = c.none },
 		TelescopePromptNormal = { fg = c.fg, bg = c.none },
 		TelescopeSelectionCaret = { fg = c.rose },
+
+    FzfLuaBorder = { fg = c.border, bg = c.none },
+    FzfLuaNormal = { fg = c.fg, bg = c.none },
 
 		WhichKeyFloat = { bg = c.none },
 
