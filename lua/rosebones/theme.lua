@@ -121,7 +121,7 @@ function M.setup()
 		Character = { fg = c.text }, --  a character constant: 'c', '\n'
 		Comment = { fg = c.comment, italic = true },
 		-- Conditional = { fg = c.pine }, --  if, then, else, endif, switch, etc.
-		Constant = { fg = c.text }, -- (preferred) any constant
+		Constant = { fg = c.fg }, -- (preferred) any constant
 		Debug = { fg = c.rose }, -- debugging statements
 		Define = { fg = c.pine }, --   preprocessor #define
 		Delimiter = { fg = c.comment },  --  character that needs attention
