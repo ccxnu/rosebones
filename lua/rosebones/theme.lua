@@ -390,12 +390,12 @@ function M.setup()
 
 		-- nvim-neo-tree/neo-tree.nvim
 		NeoTreeGitAdded = { fg = c.git.add },
-		NeoTreeGitConflict = { fg = c.git.merge },
+		NeoTreeGitConflict = { fg = c.fg },
 		NeoTreeGitDeleted = { fg = c.git.delete },
-		NeoTreeGitIgnored = { fg = c.git.ignore },
+		NeoTreeGitIgnored = { fg = c.fg },
 		NeoTreeGitModified = { fg = c.git.dirty },
-		NeoTreeGitRenamed = { fg = c.git.rename },
-		NeoTreeGitUntracked = { fg = c.git.untracked },
+		NeoTreeGitRenamed = { fg = c.fg },
+		NeoTreeGitUntracked = { fg = c.fg },
 		NeoTreeTitleBar = { link = "StatusLineTerm" },
 
 		-- kyazdani42/nvim-tree.lua

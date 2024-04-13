@@ -79,14 +79,14 @@ function M.setup(opts)
   colors.git = {
     add = colors.foam,
     change = colors.blue,
-    delete = colors.amor,
-    dirty = colors.love,
+    delete = colors.overlay,
+    dirty = colors.sky,
     text = colors.fg,
     ignore = colors.comment,
     merge = colors.rose,
     rename = colors.pine,
-    stage = colors.iris,
-    untracked = colors.overlay,
+    stage = colors.pine,
+    untracked = colors.fg,
   }
 
   colors.h1 = colors.amor
