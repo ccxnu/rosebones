@@ -27,7 +27,7 @@ function M.setup()
 	local c = theme.colors
 
 	theme.highlights = {
-		ColorColumn = { bg = util.lighten(c.black, 0.95) }, -- used for the columns set with 'colorcolumn'
+		ColorColumn = { bg = util.darken(c.love, 0.15) }, -- used for the columns set with 'colorcolumn'
 		Conceal = { bg = c.none, bold = true }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		CurSearch = { fg = c.bg, bg = c.gold },
 		Cursor = { fg = c.bg, bg = c.gold }, -- character under the cursor
@@ -131,7 +131,7 @@ function M.setup()
 		Function = { fg = c.fg }, -- function name (also: methods for classes)
 		Identifier = { fg = c.fg }, -- (preferred) any variable name
 		Include = { fg = c.pine }, --  preprocessor #include
-		Keyword = { fg = c.pine }, --  any other keyword
+		Keyword = { fg = c.foam }, --  any other keyword
 		Label = { fg = c.foam }, -- case, default, etc.
 		LspCodeLens = { fg = c.comment },
 		LspCodeLensSeparator = { fg = c.comment },
@@ -152,11 +152,11 @@ function M.setup()
 		StorageClass = { fg = c.iris }, -- static, register, volatile, etc.
 		String = { fg = c.text },
 		-- Structure = { fg = c.foam }, --  struct, union, enum, etc.
-		Tag = { fg = c.pine }, -- you can use CTRL-] on this
+		Tag = { fg = c.foam }, -- you can use CTRL-] on this
 		Todo = { fg = c.todo },
 		Type = { fg = c.fg }, -- (preferred) int, long, char, etc.
 		-- TypeDef = { link = "Type" }, --  A typedef
-		Underlined = { fg = c.iris, underline = true },
+		Underlined = { fg = c.text, underline = true },
 
 		htmlArg = { fg = c.iris },
 		htmlH1 = { link = "markdownH1" },
@@ -211,10 +211,10 @@ function M.setup()
 		["@function.builtin"] = { link = "@function" },
 		["@function.call"] = { link = "@function" },
 		["@function.macro"] = { link = "@function" },
-		["@keyword.import"] = { link = "Include" },
+		["@keyword.import"] = { link = "@keyword" },
 		["@keyword.coroutine"] = { link = "@keyword" },
 		["@keyword.operator"] = { link = "@operator" },
-		["@keyword.return"] = { link = "@keyword" },
+		["@keyword.return"] = { link = "Include" },
 		["@function.method"] = { link = "Function" },
 		["@function.method.call"] = { link = "@function.method" },
 		["@namespace.builtin"] = { link = "@variable.builtin" },
@@ -250,6 +250,11 @@ function M.setup()
 		["@type.definition"] = { link = "Typedef" },
 		["@type.qualifier"] = { fg = c.iris },
 
+		-- CSS
+		["@tag.css"] = { fg = c.rose },
+		["@type.css"] = { fg = c.rose },
+		["@constant.css"] = { fg = c.rose },
+
 		--- Misc
 		-- TODO:
 		-- ["@comment.documentation"] = { },
@@ -273,7 +278,7 @@ function M.setup()
 		["@variable.parameter.builtin"] = { fg = util.lighten(c.gold, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
 		--- Keywords
-		["@keyword"] = { fg = c.pine, style = styles.keywords }, -- For keywords that don't fall in previous categories.
+		["@keyword"] = { fg = c.foam, style = styles.keywords }, -- For keywords that don't fall in previous categories.
 		["@keyword.function"] = { fg = c.iris, style = styles.functions }, -- For keywords used to define a fuction.
 
 		["@label"] = { fg = c.foam }, -- For labels: `label:` in C and `:label:` in Lua.
@@ -285,7 +290,7 @@ function M.setup()
 
 		--- Identifiers
 		["@variable"] = { fg = c.fg, style = styles.variables }, -- Any variable name that does not have another highlight.
-		["@variable.builtin"] = { fg = c.text }, -- Variable names that are defined by the languages, like `this` or `self`.
+		["@variable.builtin"] = { fg = c.foam }, -- Variable names that are defined by the languages, like `this` or `self`.
 		["@module.builtin"] = { fg = c.text }, -- Variable names that are defined by the languages, like `this` or `self`.
 
 		--- Text
