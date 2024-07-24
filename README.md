@@ -32,12 +32,13 @@ Install the theme with your preferred package manager, such as
 
 ```lua
 {
-  'cuencapablo/rosebones',
+  'ccxnu/rosebones',
   lazy = false,
   priority = 1000,
   opts = {},
 }
 ```
+
 ## 🚀 Usage
 
 ### Lua
@@ -46,6 +47,7 @@ Install the theme with your preferred package manager, such as
 vim.cmd.colorscheme('rosebones') -- or
 vim.cmd.colorscheme('rosebones-day')
 ```
+
 ### Vim Script
 
 ```vim
