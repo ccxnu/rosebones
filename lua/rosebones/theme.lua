@@ -322,7 +322,7 @@ function M.setup()
 		["@lsp.type.escapeSequence"] = { link = "@string.escape" },
 		["@lsp.type.formatSpecifier"] = { link = "@markup.list" },
 		["@lsp.type.generic"] = { link = "@variable" },
-		["@lsp.type.interface"] = { fg = util.lighten(c.foam, 0.7) },
+		["@lsp.type.interface"] = { fg = util.lighten(c.pine, 0.6) },
 		["@lsp.type.keyword"] = { link = "@keyword" },
 		["@lsp.type.lifetime"] = { link = "@keyword.storage" },
 		["@lsp.type.namespace"] = { link = "@module" },

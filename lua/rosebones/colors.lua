@@ -7,7 +7,7 @@ local M = {}
 ---@class Palette
 M.default = {
 	none = "NONE",
-	bg = hsl(9, 30, 5),
+	bg = hsl(274, 64, 2),
 	fg = hsl(0, 18, 88),
 	sky = hsl(243, 30, 80),
 	text = hsl(347, 22, 75),
