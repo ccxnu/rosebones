@@ -268,7 +268,7 @@ function M.setup()
 		["@markup.list.markdown"] = { fg = c.rose, bold = true },
 
 		--- Literals
-		["@string.documentation"] = { fg = c.gold },
+		["@string.documentation"] = { fg = util.darken(c.iris, 0.8) },
 		["@string.regexp"] = { fg = c.foam }, -- For regexes.
 		["@string.escape"] = { fg = c.iris }, -- For escape characters within a string.
 
@@ -497,10 +497,14 @@ function M.setup()
 
 		WhichKeyFloat = { bg = c.none },
 
-		IblIndent = { fg = c.overlay, bg = c.none },
-		IblScope = { fg = c.foam, bg = c.none },
-		IblWhitespace = { fg = c.overlay, bg = c.none },
+    -- Indented Blankline
+    -- lukas-reineke/indent-blankline.nvim
+    IndentBlanklineChar        = { fg = util.darken(c.comment, 0.4), nocombine = true },
+    IndentBlanklineContextChar = { fg = util.darken(c.blue, 0.3), nocombine = true },
+		IblIndent = { fg = util.darken(c.comment, 0.4), nocombine = true },
+		IblScope = { fg = util.darken(c.blue, 0.3), nocombine = true },
 
+    -- Mini
 		MiniClueTitle = { bg = c.none, bold = true },
 
 		MiniPickBorderText = { bg = c.none },
