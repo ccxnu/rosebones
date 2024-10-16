@@ -89,12 +89,12 @@ function M.setup(opts)
 		untracked = colors.fg,
 	}
 
-	colors.h1 = colors.amor
-	colors.h2 = colors.blue
+	colors.h1 = colors.rose
+	colors.h2 = colors.foam
 	colors.h3 = colors.iris
-	colors.h4 = colors.rose
-	colors.h5 = colors.foam
-	colors.h6 = colors.gold
+	colors.h4 = colors.blue
+	colors.h5 = colors.sky
+	colors.h6 = colors.love
 
 	colors.delta = {
 		add = util.darken(colors.foam, 0.45),

@@ -158,19 +158,6 @@ function M.setup()
 		-- TypeDef = { link = "Type" }, --  A typedef
 		Underlined = { fg = c.text, underline = true },
 
-		htmlArg = { fg = c.iris },
-		htmlH1 = { link = "markdownH1" },
-		htmlH2 = { link = "markdownH2" },
-		htmlH3 = { link = "markdownH3" },
-		htmlH4 = { link = "markdownH4" },
-		htmlH5 = { link = "markdownH5" },
-		htmlItalic = { italic = true },
-		htmlBold = { bold = true },
-		htmlLink = { link = "markdownUrl" },
-		htmlTag = { fg = c.comment },
-		htmlTagN = { fg = c.text },
-		htmlTagName = { fg = c.pine },
-
 		markdownDelimiter = { fg = c.comment },
 		markdownH1 = { fg = c.h1, bold = true },
 		markdownH1Delimiter = { link = "markdownH1" },
@@ -186,6 +173,19 @@ function M.setup()
 		markdownH6Delimiter = { link = "markdownH6" },
 		markdownLinkText = { link = "markdownUrl" },
 		markdownUrl = { fg = c.sky, underline = true },
+
+		htmlArg = { fg = c.iris },
+		htmlH1 = { link = "markdownH1" },
+		htmlH2 = { link = "markdownH2" },
+		htmlH3 = { link = "markdownH3" },
+		htmlH4 = { link = "markdownH4" },
+		htmlH5 = { link = "markdownH5" },
+		htmlItalic = { italic = true },
+		htmlBold = { bold = true },
+		htmlLink = { link = "markdownUrl" },
+		htmlTag = { fg = c.comment },
+		htmlTagN = { fg = c.text },
+		htmlTagName = { fg = c.pine },
 
 		mkdCodeDelimiter = { fg = c.rose },
 		mkdCodeEnd = { fg = c.foam },
@@ -294,6 +294,12 @@ function M.setup()
 		["@module.builtin"] = { fg = c.text }, -- Variable names that are defined by the languages, like `this` or `self`.
 
 		--- Text
+		["@markup.heading.1.markdown"] = { link = "markdownH1" },
+		["@markup.heading.2.markdown"] = { link = "markdownH2" },
+		["@markup.heading.3.markdown"] = { link = "markdownH3" },
+		["@markup.heading.4.markdown"] = { link = "markdownH4" },
+		["@markup.heading.5.markdown"] = { link = "markdownH5" },
+		["@markup.heading.6.markdown"] = { link = "markdownH6" },
 		["@markup.raw.markdown_inline"] = { bg = c.black, fg = c.foam },
 		["@markup.link"] = { fg = c.pine },
 
@@ -497,14 +503,14 @@ function M.setup()
 
 		WhichKeyFloat = { bg = c.none },
 
-    -- Indented Blankline
-    -- lukas-reineke/indent-blankline.nvim
-    IndentBlanklineChar        = { fg = util.darken(c.comment, 0.4), nocombine = true },
-    IndentBlanklineContextChar = { fg = util.darken(c.blue, 0.3), nocombine = true },
+		-- Indented Blankline
+		-- lukas-reineke/indent-blankline.nvim
+		IndentBlanklineChar = { fg = util.darken(c.comment, 0.4), nocombine = true },
+		IndentBlanklineContextChar = { fg = util.darken(c.blue, 0.3), nocombine = true },
 		IblIndent = { fg = util.darken(c.comment, 0.4), nocombine = true },
 		IblScope = { fg = util.darken(c.blue, 0.3), nocombine = true },
 
-    -- Mini
+		-- Mini
 		MiniClueTitle = { bg = c.none, bold = true },
 
 		MiniPickBorderText = { bg = c.none },
