@@ -146,7 +146,7 @@ function M.setup()
 		PreProc = { link = "PreCondit" }, -- (preferred) generic Preprocessor
 		-- Repeat = { fg = c.pine }, --   for, do, while, etc.
 		Special = { fg = c.iris }, -- (preferred) any special symbol
-		-- SpecialChar = { link = "Special" }, --  special character in a constant
+		SpecialChar = { link = "Special" }, --  special character in a constant
 		-- SpecialComment = { fg = c.iris }, -- special things inside a comment
 		Statement = { fg = c.pine, bold = true }, -- (preferred) any statement
 		StorageClass = { fg = c.iris }, -- static, register, volatile, etc.
@@ -224,7 +224,7 @@ function M.setup()
 		["@keyword.repeat"] = { link = "Repeat" },
 		["@keyword.storage"] = { link = "StorageClass" },
 		["@string"] = { link = "String" },
-		["@markup.link.label"] = { link = "SpecialChar" },
+		["@markup.link.label"] = { link = "String" },
 		["@markup.link.label.symbol"] = { link = "Identifier" },
 		["@tag"] = { link = "Tag" },
 		["@tag.attribute"] = { fg = c.iris },
@@ -314,8 +314,9 @@ function M.setup()
 
 		-- tsx
 		["@tag.tsx"] = { fg = c.pine },
-		["@constructor.tsx"] = { fg = c.rose },
+		["@tag.builtin.tsx"] = { fg = c.foam },
 		["@tag.delimiter.tsx"] = { fg = c.comment },
+		["@constructor.tsx"] = { fg = c.rose },
 
 		-- LSP Semantic Token Groups
 		["@lsp.type.boolean"] = { link = "@boolean" },
