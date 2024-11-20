@@ -313,7 +313,7 @@ function M.setup()
 		["@module"] = { link = "Include" },
 
 		-- tsx
-		["@tag.tsx"] = { fg = c.blue },
+		["@tag.tsx"] = { fg = c.foam },
 		["@tag.builtin.tsx"] = { fg = c.foam },
 		["@tag.delimiter.tsx"] = { fg = c.comment },
 		["@constructor.tsx"] = { fg = c.rose },
