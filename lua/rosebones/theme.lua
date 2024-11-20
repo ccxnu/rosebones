@@ -279,7 +279,7 @@ function M.setup()
 
 		--- Keywords
 		["@keyword"] = { fg = c.foam, style = styles.keywords }, -- For keywords that don't fall in previous categories.
-		["@keyword.function"] = { fg = c.iris, style = styles.functions }, -- For keywords used to define a fuction.
+		["@keyword.function"] = { fg = c.foam, style = styles.functions }, -- For keywords used to define a fuction.
 
 		["@label"] = { fg = c.foam }, -- For labels: `label:` in C and `:label:` in Lua.
 
