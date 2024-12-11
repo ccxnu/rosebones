@@ -27,7 +27,7 @@ function M.setup()
 	local c = theme.colors
 
 	theme.highlights = {
-		ColorColumn = { bg = util.darken(c.love, 0.15) }, -- used for the columns set with 'colorcolumn'
+		ColorColumn = { bg = util.darken(c.brown, 0.15) }, -- used for the columns set with 'colorcolumn'
 		Conceal = { bg = c.none, bold = true }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		CurSearch = { fg = c.bg, bg = c.gold },
 		Cursor = { fg = c.bg, bg = c.gold }, -- character under the cursor
@@ -51,9 +51,9 @@ function M.setup()
 		Folded = { fg = c.fg, bg = c.black }, -- line used for closed folds
 		IncSearch = { link = "CurSearch" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		LineNr = { fg = c.comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		MatchParen = { fg = c.rose, bold = true }, -- The character under the cursor or just before it, if it is a paiamor bracket, and its match. |pi_paren.txt|
+		MatchParen = { fg = c.cream, bold = true }, -- The character under the cursor or just before it, if it is a paiamor bracket, and its match. |pi_paren.txt|
 		ModeMsg = { fg = c.fg, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
-		MoreMsg = { fg = c.foam }, -- |more-prompt|
+		MoreMsg = { fg = c.green }, -- |more-prompt|
 		MsgArea = { fg = c.fg }, -- Area for messages and cmdline
 		NonText = { fg = c.dark }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Normal = { fg = c.fg, bg = c.bg }, -- normal text
@@ -71,19 +71,19 @@ function M.setup()
 		-- QuickFixLine = {}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search = { bg = c.bg_highlight, fg = c.text }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 		SignColumn = { fg = c.text, bg = c.none }, -- column where |signs| are displayed
-		SpecialKey = { fg = c.foam }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+		SpecialKey = { fg = c.green }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
 		SpellBad = { sp = c.error, undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
 		SpellCap = { sp = c.error, undercurl = true }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
 		SpellLocal = { sp = c.info, undercurl = true }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		SpellRare = { sp = c.error, undercurl = true }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 		StatusLine = { fg = c.fg, bg = c.muted }, -- status line of current window
 		StatusLineNC = { fg = util.darken(c.fg, 0.7), bg = c.muted }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		StatusLineTerm = { fg = c.bg, bg = util.lighten(c.iris, 0.8) },
-		StatusLineTermNC = { fg = c.bg, bg = util.darken(c.iris, 0.7) },
+		StatusLineTerm = { fg = c.bg, bg = util.lighten(c.purple, 0.8) },
+		StatusLineTermNC = { fg = c.bg, bg = util.darken(c.purple, 0.7) },
 		Substitute = { link = "IncSearch" }, -- |:substitute| replacement text highlighting
 		TabLine = { link = "StatusLine" }, -- tab pages line, not active tab page label
 		TabLineFill = { bg = c.black }, -- tab pages line, where there are no labels
-		TabLineSel = { fg = c.black, bg = c.foam }, -- tab pages line, active tab page label
+		TabLineSel = { fg = c.black, bg = c.green }, -- tab pages line, active tab page label
 		Title = { fg = c.fg, bold = true }, -- titles for output from ":set all", ":autocmd" etc.
 		VertSplit = { fg = c.border, bg = c.none }, -- the column separating vertically split windows
 		Visual = { bg = c.bg_highlight }, -- Visual mode selection
@@ -122,7 +122,7 @@ function M.setup()
 		Comment = { fg = c.comment, italic = true },
 		-- Conditional = { fg = c.pine }, --  if, then, else, endif, switch, etc.
 		Constant = { fg = c.fg }, -- (preferred) any constant
-		Debug = { fg = c.rose }, -- debugging statements
+		Debug = { fg = c.cream }, -- debugging statements
 		Define = { fg = c.pine }, --   preprocessor #define
 		Delimiter = { fg = c.comment }, --  character that needs attention
 		Error = { fg = c.error },
@@ -131,8 +131,8 @@ function M.setup()
 		Function = { fg = c.fg }, -- function name (also: methods for classes)
 		Identifier = { fg = c.fg }, -- (preferred) any variable name
 		Include = { fg = c.pine }, --  preprocessor #include
-		Keyword = { fg = c.foam }, --  any other keyword
-		Label = { fg = c.foam }, -- case, default, etc.
+		Keyword = { fg = c.green }, --  any other keyword
+		Label = { fg = c.green }, -- case, default, etc.
 		LspCodeLens = { fg = c.comment },
 		LspCodeLensSeparator = { fg = c.comment },
 		LspInlayHint = { fg = c.comment },
@@ -145,14 +145,14 @@ function M.setup()
 		PreCondit = { fg = c.pine }, --  preprocessor #if, #else, #endif, etc.
 		PreProc = { link = "PreCondit" }, -- (preferred) generic Preprocessor
 		-- Repeat = { fg = c.pine }, --   for, do, while, etc.
-		Special = { fg = c.iris }, -- (preferred) any special symbol
+		Special = { fg = c.purple }, -- (preferred) any special symbol
 		SpecialChar = { link = "Special" }, --  special character in a constant
 		-- SpecialComment = { fg = c.iris }, -- special things inside a comment
 		Statement = { fg = c.pine, bold = true }, -- (preferred) any statement
-		StorageClass = { fg = c.iris }, -- static, register, volatile, etc.
+		StorageClass = { fg = c.purple }, -- static, register, volatile, etc.
 		String = { fg = c.text },
 		-- Structure = { fg = c.foam }, --  struct, union, enum, etc.
-		Tag = { fg = c.foam }, -- you can use CTRL-] on this
+		Tag = { fg = c.green }, -- you can use CTRL-] on this
 		Todo = { fg = c.todo },
 		Type = { fg = c.fg }, -- (preferred) int, long, char, etc.
 		-- TypeDef = { link = "Type" }, --  A typedef
@@ -174,7 +174,7 @@ function M.setup()
 		markdownLinkText = { link = "markdownUrl" },
 		markdownUrl = { fg = c.sky, underline = true },
 
-		htmlArg = { fg = c.iris },
+		htmlArg = { fg = c.purple },
 		htmlH1 = { link = "markdownH1" },
 		htmlH2 = { link = "markdownH2" },
 		htmlH3 = { link = "markdownH3" },
@@ -187,14 +187,14 @@ function M.setup()
 		htmlTagN = { fg = c.text },
 		htmlTagName = { fg = c.pine },
 
-		mkdCodeDelimiter = { fg = c.rose },
-		mkdCodeEnd = { fg = c.foam },
-		mkdCodeStart = { fg = c.foam },
+		mkdCodeDelimiter = { fg = c.cream },
+		mkdCodeEnd = { fg = c.green },
+		mkdCodeStart = { fg = c.green },
 
 		--- Identifiers
 		-- These groups are for the Neovim tree-sitter highlights.
 		["@annotation"] = { link = "PreProc" },
-		["@attribute"] = { fg = c.rose },
+		["@attribute"] = { fg = c.cream },
 		["@boolean"] = { link = "Boolean" },
 		["@character"] = { link = "Character" },
 		["@character.special"] = { link = "SpecialChar" },
@@ -227,7 +227,7 @@ function M.setup()
 		["@markup.link.label"] = { link = "String" },
 		["@markup.link.label.symbol"] = { link = "Identifier" },
 		["@tag"] = { link = "Tag" },
-		["@tag.attribute"] = { fg = c.iris },
+		["@tag.attribute"] = { fg = c.purple },
 		["@tag.delimiter"] = { link = "Delimiter" },
 		["@markup"] = { link = "@none" },
 		["@markup.environment"] = { link = "Macro" },
@@ -248,12 +248,12 @@ function M.setup()
 		["@markup.link.url"] = { link = "Underlined" },
 		["@type"] = { link = "Type" },
 		["@type.definition"] = { link = "Typedef" },
-		["@type.qualifier"] = { fg = c.iris },
+		["@type.qualifier"] = { fg = c.purple },
 
 		-- CSS
-		["@tag.css"] = { fg = c.rose },
-		["@type.css"] = { fg = c.rose },
-		["@constant.css"] = { fg = c.rose },
+		["@tag.css"] = { fg = c.cream },
+		["@type.css"] = { fg = c.cream },
+		["@constant.css"] = { fg = c.cream },
 
 		--- Misc
 		-- TODO:
@@ -263,14 +263,14 @@ function M.setup()
 		--- Punctuation
 		["@punctuation.delimiter"] = { fg = c.fg }, -- For delimiters ie: `.`
 		["@punctuation.bracket"] = { fg = c.fg }, -- For brackets and parens.
-		["@punctuation.special"] = { fg = c.iris }, -- For special symbols (e.g. `{}` in string interpolation)
+		["@punctuation.special"] = { fg = c.purple }, -- For special symbols (e.g. `{}` in string interpolation)
 		["@markup.list"] = { fg = c.pine }, -- For special punctutation that does not fall in the catagories before.
-		["@markup.list.markdown"] = { fg = c.rose, bold = true },
+		["@markup.list.markdown"] = { fg = c.cream, bold = true },
 
 		--- Literals
-		["@string.documentation"] = { fg = util.darken(c.iris, 0.8) },
-		["@string.regexp"] = { fg = c.foam }, -- For regexes.
-		["@string.escape"] = { fg = c.iris }, -- For escape characters within a string.
+		["@string.documentation"] = { fg = util.darken(c.purple, 0.8) },
+		["@string.regexp"] = { fg = c.green }, -- For regexes.
+		["@string.escape"] = { fg = c.purple }, -- For escape characters within a string.
 
 		--- Functions
 		["@constructor"] = { fg = c.fg }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
@@ -278,10 +278,10 @@ function M.setup()
 		["@variable.parameter.builtin"] = { fg = util.lighten(c.gold, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
 		--- Keywords
-		["@keyword"] = { fg = c.foam, style = styles.keywords }, -- For keywords that don't fall in previous categories.
-		["@keyword.function"] = { fg = c.foam, style = styles.functions }, -- For keywords used to define a fuction.
+		["@keyword"] = { fg = c.green, style = styles.keywords }, -- For keywords that don't fall in previous categories.
+		["@keyword.function"] = { fg = c.green, style = styles.functions }, -- For keywords used to define a fuction.
 
-		["@label"] = { fg = c.foam }, -- For labels: `label:` in C and `:label:` in Lua.
+		["@label"] = { fg = c.green }, -- For labels: `label:` in C and `:label:` in Lua.
 
 		--- Types
 		["@type.builtin"] = { fg = c.fg },
@@ -290,7 +290,7 @@ function M.setup()
 
 		--- Identifiers
 		["@variable"] = { fg = c.fg, style = styles.variables }, -- Any variable name that does not have another highlight.
-		["@variable.builtin"] = { fg = c.foam }, -- Variable names that are defined by the languages, like `this` or `self`.
+		["@variable.builtin"] = { fg = c.green }, -- Variable names that are defined by the languages, like `this` or `self`.
 		["@module.builtin"] = { fg = c.text }, -- Variable names that are defined by the languages, like `this` or `self`.
 
 		--- Text
@@ -300,11 +300,11 @@ function M.setup()
 		["@markup.heading.4.markdown"] = { link = "markdownH4" },
 		["@markup.heading.5.markdown"] = { link = "markdownH5" },
 		["@markup.heading.6.markdown"] = { link = "markdownH6" },
-		["@markup.raw.markdown_inline"] = { bg = c.black, fg = c.foam },
+		["@markup.raw.markdown_inline"] = { bg = c.black, fg = c.green },
 		["@markup.link"] = { fg = c.pine },
 
-		["@markup.list.unchecked"] = { fg = c.foam }, -- For brackets and parens.
-		["@markup.list.checked"] = { fg = c.love }, -- For brackets and parens.
+		["@markup.list.unchecked"] = { fg = c.green }, -- For brackets and parens.
+		["@markup.list.checked"] = { fg = c.brown }, -- For brackets and parens.
 
 		["@git.plus"] = { link = "DiffAdd" },
 		["@git.minus"] = { link = "DiffDelete" },
@@ -313,10 +313,10 @@ function M.setup()
 		["@module"] = { link = "Include" },
 
 		-- tsx
-		["@tag.tsx"] = { fg = c.foam },
-		["@tag.builtin.tsx"] = { fg = c.foam },
+		["@tag.tsx"] = { fg = c.green },
+		["@tag.builtin.tsx"] = { fg = c.green },
 		["@tag.delimiter.tsx"] = { fg = c.comment },
-		["@constructor.tsx"] = { fg = c.rose },
+		["@constructor.tsx"] = { fg = c.cream },
 
 		-- LSP Semantic Token Groups
 		["@lsp.type.boolean"] = { link = "@boolean" },
@@ -354,8 +354,8 @@ function M.setup()
 		["@lsp.typemod.operator.injected"] = { link = "@operator" },
 		["@lsp.typemod.string.injected"] = { link = "@string" },
 		["@lsp.typemod.struct.defaultLibrary"] = { link = "@type.builtin" },
-		["@lsp.typemod.type.defaultLibrary"] = { fg = util.darken(c.foam, 0.8) },
-		["@lsp.typemod.typeAlias.defaultLibrary"] = { fg = util.darken(c.foam, 0.8) },
+		["@lsp.typemod.type.defaultLibrary"] = { fg = util.darken(c.green, 0.8) },
+		["@lsp.typemod.typeAlias.defaultLibrary"] = { fg = util.darken(c.green, 0.8) },
 		["@lsp.typemod.variable.callable"] = { link = "@function" },
 		["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
 		["@lsp.typemod.variable.injected"] = { link = "@variable" },
@@ -365,7 +365,7 @@ function M.setup()
 
 		-- NeoVim
 		healthError = { fg = c.error },
-		healthSuccess = { fg = c.foam },
+		healthSuccess = { fg = c.green },
 		healthWarning = { fg = c.warning },
 
 		--- PLUGINS ---
@@ -415,7 +415,7 @@ function M.setup()
 		NvimTreeFileDeleted = { fg = c.git.delete },
 		NvimTreeFileDirty = { fg = c.git.dirty },
 		NvimTreeFileMerge = { fg = c.git.merge },
-		NvimTreeFileNew = { fg = c.foam },
+		NvimTreeFileNew = { fg = c.green },
 		NvimTreeFileRenamed = { fg = c.git.rename },
 		NvimTreeFileStaged = { fg = c.git.stage },
 		NvimTreeFolderIcon = { fg = c.comment },
@@ -439,14 +439,14 @@ function M.setup()
 		-- Dashboard
 		DashboardShortCut = { fg = c.pine },
 		DashboardHeader = { fg = c.pine },
-		DashboardCenter = { fg = c.iris },
-		DashboardFooter = { fg = c.love },
-		DashboardKey = { fg = c.rose },
+		DashboardCenter = { fg = c.purple },
+		DashboardFooter = { fg = c.brown },
+		DashboardKey = { fg = c.cream },
 		DashboardDesc = { fg = c.fg },
-		DashboardIcon = { fg = c.iris, bold = true },
+		DashboardIcon = { fg = c.purple, bold = true },
 
 		-- Lazy
-		LazyProgressDone = { bold = true, fg = c.iris },
+		LazyProgressDone = { bold = true, fg = c.purple },
 		LazyProgressTodo = { bold = true, fg = c.dark },
 		TreesitterContext = { bg = c.none },
 	}
@@ -483,7 +483,7 @@ function M.setup()
 		Normal = { fg = c.fg, bg = c.none },
 		NormalNC = { fg = c.fg, bg = c.none },
 		Pmenu = { fg = c.border, bg = c.none },
-		PmenuKind = { fg = c.foam, bg = c.none },
+		PmenuKind = { fg = c.green, bg = c.none },
 		SignColumn = { fg = c.fg, bg = c.none },
 		StatusLine = { fg = c.fg, bg = c.none },
 		StatusLineNC = { fg = util.darken(c.fg, 0.7), bg = c.none },
@@ -497,7 +497,7 @@ function M.setup()
 		TelescopeBorder = { fg = c.border, bg = c.none },
 		TelescopeNormal = { fg = c.fg, bg = c.none },
 		TelescopePromptNormal = { fg = c.fg, bg = c.none },
-		TelescopeSelectionCaret = { fg = c.rose },
+		TelescopeSelectionCaret = { fg = c.cream },
 
 		FzfLuaBorder = { fg = c.border, bg = c.none },
 		FzfLuaNormal = { fg = c.fg, bg = c.none },

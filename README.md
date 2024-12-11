@@ -8,10 +8,6 @@ and [Zenbones](https://github.com/mcchrish/zenbones.nvim) themes.
 
 <!--- ![image](https://user-images.githubusercontent.com/292349/115295095-3a9e5080-a10e-11eb-9aed-6054488c46ce.png) --->
 
-## Day
-
-<!--- ![image](https://user-images.githubusercontent.com/292349/115295327-7afdce80-a10e-11eb-89b3-2591262bf95a.png) --->
-
 ## ✨ Features
 
 - Supports the latest [Neovim](https://github.com/neovim/neovim)
@@ -45,30 +41,20 @@ Install the theme with your preferred package manager, such as
 
 ```lua
 vim.cmd.colorscheme('rosebones') -- or
-vim.cmd.colorscheme('rosebones-day')
 ```
 
 ### Vim Script
 
 ```vim
 colorscheme rosebones " or
-colorscheme rosebones-day
 ```
-
-## ⚙️ Configuration
-
-The theme offers two styles: [dark](#default) and [day](#day).
-
-The [day](#day) style is used when `{ style = "day" }` is passed to
-`setup(options)` or when `vim.o.background = "light"`.
 
 ### Default options
 
 ```lua
 require("rosebones").setup({
-  style = "default", -- The theme comes in two styles: default(dark) & day(light).
-  light_style = "day", -- The theme is used when the background is set to light
-  transparent = false, -- Enable this to disable setting the background color (Recommended)
+  style = "default",
+  transparent = true, -- Enable this to disable setting the background color (Recommended)
   terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -101,6 +87,8 @@ require("rosebones").setup({
 
 Pull requests are welcome.
 This theme is still in progress.
-Support for major all major plugins will come with time.
+
+Support for all major plugins will come by request because
+I don't use all of them just few.
 
 ##### I hope you enjoy it!
