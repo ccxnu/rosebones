@@ -332,7 +332,7 @@ function M.setup()
 		["@lsp.type.interface"] = { fg = util.lighten(c.pine, 0.6) },
 		["@lsp.type.keyword"] = { link = "@keyword" },
 		["@lsp.type.lifetime"] = { link = "@keyword.storage" },
-		["@lsp.type.namespace"] = { link = "@module" },
+		["@lsp.type.namespace"] = { link = "Type" },
 		["@lsp.type.number"] = { link = "@number" },
 		["@lsp.type.operator"] = { link = "@operator" },
 		["@lsp.type.parameter"] = { link = "@variable.parameter" },
