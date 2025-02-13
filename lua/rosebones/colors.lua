@@ -1,29 +1,27 @@
 local util = require("rosebones.util")
-local hslutil = require("rosebones.hsl")
-local hsl = hslutil.hslToHex
 
 local M = {}
 
 ---@class Palette
 M.default = {
 	none = "NONE",
-	bg = hsl(274, 64, 2),
-	fg = hsl(0, 18, 88),
-	sky = hsl(243, 30, 80),
-	text = hsl(347, 22, 75),
-	gold = hsl(45, 98, 50),
-	cream = hsl(2, 66, 75),
-	pine = hsl(198, 49, 38),
-	green = hsl(181, 17, 45),
-	purple = hsl(240, 20, 61),
-	red = hsl(343, 76, 68),
-	blue = hsl(217, 40, 56),
-	brown = hsl(347, 22, 68),
-	dark = hsl(229, 20, 41),
-	muted = hsl(9, 30, 6),
-	overlay = hsl(60, 1, 80),
-	comment = hsl(250, 11, 45),
-	bg_highlight = hsl(249, 15, 28),
+	bg = "#060F0B",
+	fg = "#E5DADA",
+	red = "#893f45",
+	pine = "#31748F",
+	sky = "#C0CAF5",
+	blue = "#81A2BE",
+	text = "#CDB1B7",
+	green = "#5F8484",
+	brown = "#A87569",
+	muted = "#130C0A",
+	overlay = "#545C7E",
+	dark = "#292E42",
+	gold = "#C99D5D",
+	purple = "#8787AF",
+	cream = "#E99795",
+	comment = "#5F5B72",
+	bg_highlight = "#3F3C52",
 }
 
 ---@return ColorScheme
@@ -52,23 +50,23 @@ function M.setup(opts)
 	colors.hint = colors.sky
 	colors.info = colors.green
 	colors.warning = colors.gold
-	colors.todo = colors.rose
+	colors.todo = colors.cream
 	colors.note = colors.pine
 
 	colors.git = {
-		add = colors.green,
+		add = util.darken(colors.green, 0.70),
 		change = colors.blue,
-		delete = colors.overlay,
+		delete = colors.red,
 		dirty = colors.sky,
 		text = colors.fg,
 		ignore = colors.comment,
-		merge = colors.rose,
+		merge = colors.cream,
 		rename = colors.pine,
 		stage = colors.pine,
 		untracked = colors.fg,
 	}
 
-	colors.h1 = colors.rose
+	colors.h1 = colors.cream
 	colors.h2 = colors.green
 	colors.h3 = colors.purple
 	colors.h4 = colors.blue

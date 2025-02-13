@@ -33,7 +33,7 @@ local defaults = {
 }
 
 ---@type Config
-M.options = {}
+M.options = nil
 
 ---@param options Config|nil
 function M.setup(options)

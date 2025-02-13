@@ -31,9 +31,9 @@ function M.setup()
 		Conceal = { bg = c.none, bold = true }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		CurSearch = { fg = c.bg, bg = c.gold },
 		Cursor = { fg = c.bg, bg = c.gold }, -- character under the cursor
-		CursorColumn = { bg = c.bg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		-- CursorIM = {}, -- like Cursor, but used when in IME mode |CursorIM|
-		CursorLine = { bg = c.none }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+		CursorColumn = { bg = c.bg_highlight }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+		CursorIM = { bg = c.fg }, -- like Cursor, but used when in IME mode |CursorIM|
+		CursorLine = { bg = c.bg_highlight }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
 		CursorLineNr = { fg = c.text }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		DiffAdd = { bg = c.git.add }, -- diff mode: Added line |diff.txt|
 		DiffChange = { bg = c.git.change }, -- diff mode: Changed line |diff.txt|
@@ -55,7 +55,7 @@ function M.setup()
 		ModeMsg = { fg = c.fg, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MoreMsg = { fg = c.green }, -- |more-prompt|
 		MsgArea = { fg = c.fg }, -- Area for messages and cmdline
-		NonText = { fg = c.dark }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText = { fg = util.darken(c.fg, 0.1) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Normal = { fg = c.fg, bg = c.bg }, -- normal text
 		NormalFloat = { fg = c.fg, bg = c.bg }, -- Normal text in floating windows.
 		NormalNC = { fg = c.fg, bg = options.dim_inactive and c.black or c.bg }, -- normal text in non-current windows
@@ -120,7 +120,7 @@ function M.setup()
 		Boolean = { fg = c.text }, --  a boolean constant: TRUE, false
 		Character = { fg = c.text }, --  a character constant: 'c', '\n'
 		Comment = { fg = c.comment, italic = true },
-		-- Conditional = { fg = c.pine }, --  if, then, else, endif, switch, etc.
+		Conditional = { fg = c.pine }, --  if, then, else, endif, switch, etc.
 		Constant = { fg = c.fg }, -- (preferred) any constant
 		Debug = { fg = c.cream }, -- debugging statements
 		Define = { fg = c.pine }, --   preprocessor #define
@@ -129,6 +129,7 @@ function M.setup()
 		-- Exception = { fg = c.pine }, --  try, catch, throw
 		Float = { fg = c.text }, -- a floating point constant: 2.3e10
 		Function = { fg = c.fg }, -- function name (also: methods for classes)
+		Class = { fg = c.fg }, -- function name (also: methods for classes)
 		Identifier = { fg = c.fg }, -- (preferred) any variable name
 		Include = { fg = c.pine }, --  preprocessor #include
 		Keyword = { fg = c.green }, --  any other keyword
@@ -155,7 +156,7 @@ function M.setup()
 		Tag = { fg = c.green }, -- you can use CTRL-] on this
 		Todo = { fg = c.todo },
 		Type = { fg = c.fg }, -- (preferred) int, long, char, etc.
-		-- TypeDef = { link = "Type" }, --  A typedef
+		TypeDef = { link = "Type" }, --  A typedef
 		Underlined = { fg = c.text, underline = true },
 
 		markdownDelimiter = { fg = c.comment },
@@ -199,6 +200,7 @@ function M.setup()
 		["@character"] = { link = "Character" },
 		["@character.special"] = { link = "SpecialChar" },
 		["@comment"] = { link = "Comment" },
+		["@class"] = { link = "Class" },
 		["@keyword.conditional"] = { link = "Conditional" },
 		["@constant"] = { link = "Constant" },
 		["@constant.builtin"] = { link = "Constant" },
@@ -274,7 +276,7 @@ function M.setup()
 
 		--- Functions
 		["@constructor"] = { fg = c.fg }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-		["@variable.parameter"] = { fg = c.text }, -- For parameters of a function.
+		["@variable.parameter"] = { fg = c.fg }, -- For parameters of a function.
 		["@variable.parameter.builtin"] = { fg = util.lighten(c.gold, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
 		--- Keywords
@@ -322,6 +324,7 @@ function M.setup()
 		["@lsp.type.boolean"] = { link = "@boolean" },
 		["@lsp.type.builtinType"] = { link = "@type.builtin" },
 		["@lsp.type.comment"] = { link = "@comment" },
+		["@lsp.type.class"] = { link = "@class" },
 		["@lsp.type.decorator"] = { link = "@attribute" },
 		["@lsp.type.deriveHelper"] = { link = "@attribute" },
 		["@lsp.type.enum"] = { link = "@type" },

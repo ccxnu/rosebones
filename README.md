@@ -46,7 +46,7 @@ vim.cmd.colorscheme('rosebones') -- or
 ### Vim Script
 
 ```vim
-colorscheme rosebones " or
+colorscheme rosebones
 ```
 
 ### Default options
